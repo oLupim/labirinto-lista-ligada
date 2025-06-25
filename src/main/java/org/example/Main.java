@@ -27,16 +27,16 @@ public class Main {
         boolean game = false;
         boolean formSalaGame = true;
 
-        Sala sala0 = new Sala(0, TypeSala.Normal, "Sala central do labirinto");
-        Sala sala1 = new Sala(1, TypeSala.Normal, "Entrada escura de pedra úmida.");
-        Sala sala2 = new Sala(2, TypeSala.Trap, "Chão falso com espinhos escondidos.");
-        Sala sala4 = new Sala(3, TypeSala.Normal, "Corredor com tochas apagadas.");
-        Sala sala5 = new Sala(4, TypeSala.Award, "Sala com um baú de ouro reluzente.");
-        Sala sala6 = new Sala(5, TypeSala.Trap, "Armadilha de flechas nas paredes.");
-        Sala sala7 = new Sala(6, TypeSala.Normal, "Passagem estreita cheia de teias de aranha.");
-        Sala sala8 = new Sala(7, TypeSala.Award, "Fonte mágica que restaura a vida.");
-        Sala sala9 = new Sala(8, TypeSala.Trap, "Estátuas que disparam laser quando ativadas.");
-        Sala sala10 = new Sala(99, TypeSala.Exit, "Porta rúnica que leva à saída da dungeon.");
+        Sala sala0 = new Sala(0, TypeSala.Normal, "Galpão");
+        Sala sala1 = new Sala(1, TypeSala.Normal, "Potreiro");
+        Sala sala2 = new Sala(2, TypeSala.Trap, "Atoleiro");
+        Sala sala4 = new Sala(3, TypeSala.Normal, "Corredor");
+        Sala sala5 = new Sala(4, TypeSala.Gift, "Baú");
+        Sala sala6 = new Sala(5, TypeSala.Trap, "Granizo");
+        Sala sala7 = new Sala(6, TypeSala.Normal, "Rancho");
+        Sala sala8 = new Sala(7, TypeSala.Gift, "Mate");
+        Sala sala9 = new Sala(8, TypeSala.Trap, "Gauchada");
+        Sala sala10 = new Sala(99, TypeSala.Exit, "Saída");
 
         labirinto.createSala(sala0);
         labirinto.createSala(sala1);
@@ -101,7 +101,7 @@ public class Main {
                             break;
 
                         case 3:
-                            selectType = TypeSala.Award.name();
+                            selectType = TypeSala.Gift.name();
                             break;
 
                         case 4:
@@ -153,7 +153,7 @@ public class Main {
             String mensageName = (jogador.name == null) ? "1 - Inserir nome do jogador"
                     : "1 - Editar nome do jogador";
             System.out.println(mensageName);
-            System.out.println("2 - Mudar de Sala");
+            // System.out.println("2 - Mudar de Sala");
             System.out.println("3 - Avançar de Sala");
             System.out.println("4 - Voltar uma Sala");
             System.out.println("5 - Sala atual do Jogador");
