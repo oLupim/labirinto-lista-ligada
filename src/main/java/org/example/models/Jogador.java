@@ -47,12 +47,12 @@ public class Jogador {
             case Normal:
                 break;
 
-            case Award:
+            case Gift:
                 for (int i = 0; i < descriptionVisitedSalas.length; i++) {
                     if (descriptionVisitedSalas[newSala.salaNumber] != newSala.salaDescription) {
                         descriptionVisitedSalas[newSala.salaNumber] = newSala.salaDescription;
                         visitedsalas++;
-                        award();
+                        gift();
                         break;
                     }
                 }
@@ -128,16 +128,16 @@ public class Jogador {
         }
     }
 
-    public void award() {
+    public void gift() {
         int luck = (int) (Math.random() * 10);
         if (luck < 5) {
             score += luck;
             System.out.println("Que sorte! Você recebeu " + luck + " pontos");
         } else {
-            String[] awards = new String[] { "Machado", "Espada", "Escudo", "Poção", "Capacete" };
+            String[] gifts = new String[] { "Machado", "Espada", "Escudo", "Poção", "Capacete" };
             for (int i = 0; i < inventory.length; i++) {
                 if (inventory[i] == null) {
-                    addItem(awards[luck - 5]);
+                    addItem(gifts[luck - 5]);
                     System.out
                             .println("Que sorte! Você recebeu um item " + inventory[i] + " Inventário atual:  " + (i + 1));
                     break;
