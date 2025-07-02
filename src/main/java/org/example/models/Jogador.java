@@ -4,7 +4,7 @@ package org.example.models;
 public class Jogador {
     public String name;
     private String[] inventory;
-    private Double score;
+    private double score;
     public Sala sala;
     private int visitedsalas;
     private String[] descriptionVisitedSalas;
@@ -38,7 +38,7 @@ public class Jogador {
 
     public void changingSala(Labirinto laririnth, Sala newSala) {
         if (newSala == null) {
-            System.out.println("Erro de execução: Esta sala não existe (New Sala is Nul)");
+            System.out.println("Erro de execução: Você não inicializou o jogo corretamente!");
             return;
         }
         sala = newSala;
@@ -81,6 +81,8 @@ public class Jogador {
                 if (numbersVisitedSalas <= 9) {
                     System.out.println("Você chegou a saída, mas ainda não visitou todas as salas");
                     goToHub(laririnth);
+                } else {
+                    win();
                 }
                 break;
 
@@ -117,7 +119,7 @@ public class Jogador {
     }
 
     public void trap(Labirinto Labirinto) {
-        Double trap = Math.random() * 5;
+        double trap = Math.random() * 5;
         if (score > trap) {
             score -= trap;
             System.out.println("Você caiu em uma armadilha! Pontuação: " + score);
@@ -148,11 +150,12 @@ public class Jogador {
 
     public boolean win() {
         boolean game = true;
-        if (sala.salaType.name() == "Saída") {
+        if (sala.salaType.name() == "Exit") {
             game = false;
 
             System.out.println();
             System.out.println("===| Final |===");
+            System.out.println(name);
             System.out.println("Pontuação Final: " + score);
             System.out.println("Inventário: ");
             for (int i = 0; i < inventory.length; i++) {
@@ -169,6 +172,7 @@ public class Jogador {
                     System.out.println("Sala: " + descriptionVisitedSalas[i]);
                 }
             }
+            System.exit(0);
             return game;
         }
         return game;

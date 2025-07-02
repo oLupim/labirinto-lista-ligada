@@ -48,8 +48,6 @@ public class Labirinto<T> {
         System.out.println();
     }
 
-    // ou fazer uma função para validar o "tamanho" do labirinto à parte
-
     public void removeSala(int salaNumber) {
         if (startLabirinto == null)
             return;

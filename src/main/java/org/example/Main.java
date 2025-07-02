@@ -61,7 +61,7 @@ public class Main {
             System.out.println("  _| Criar Salas |_");
             System.out.println("1 - Criar uma sala");
             if (autoCreate)
-                System.out.println("2 - AutoCriar 9 Salas");
+                System.out.println("2 - Autocriar as Salas");
             System.out.println("9 - Começar o jogo");
             int optionSala = scanner.nextInt();
 
@@ -181,12 +181,18 @@ public class Main {
                     break;
 
                 case 3:
+                    if (jogador.name != null) {
                     Sala nextSala = labirinto.nextSala(jogador.sala);
                     jogador.changingSala(labirinto, nextSala);
                     jogador.getSala();
                     game = jogador.win();
                     clearConsole();
                     break;
+                    }else {
+                        System.out.println("Você não criou um jogador.");
+                        System.out.println("Volte e crie um nome do jogador!");
+                        clearConsole();
+                    }
 
                 case 4:
                     Sala previusSala = labirinto.previusSala(jogador.sala);
